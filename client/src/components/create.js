@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
  
-export default function Create() {
+export default function Create({server}) {
  const [form, setForm] = useState({
    name: "",
    position: "",
@@ -23,7 +23,7 @@ async function onSubmit(e) {
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newPerson = { ...form };
  
-   await fetch("http://localhost:5050/record", {
+   await fetch(server + "/record", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
