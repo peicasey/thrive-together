@@ -28,7 +28,7 @@ npm i
 npm start 
 ```
 
-## Techonologies
+## Technologies
 - `mongoDB`
 -  `express.js`
 - `react`
