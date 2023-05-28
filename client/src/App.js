@@ -21,7 +21,6 @@ const App = ({ Component, pageProps }) => {
   return (
     <div className="bg-slate-50 text-black dark:bg-slate-900 dark:text-white">
       <Navbar />
-      <model-viewer src="assets/HTC_Vive_Headset.gltf" alt="VR Headset" auto-rotate camera-controls ar ios-src="assets/HTC_Vive_Headset.gltf"></model-viewer>
       <Routes>
         <Route exact path="/" element={<RecordList server={s}/>} />
         <Route path="/edit/:id" element={<Edit server={s}/>} />
