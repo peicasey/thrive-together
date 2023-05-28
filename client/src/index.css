@@ -1,41 +1,5 @@
-/* :root {
-  @apply .dark;
-}
-
-.dark {
-  --color-page0: #0b1929;
-  --color-page1: #21252c;
-  --color-page2: #141920;
-  --color-page3: #11151b;
-  --color-page4: #0a0c14;
-
-  --c-text: white;
-  --c-text-s: #a6b2b2;
- 
-  --c-0: #255b4c;
-  --c-1: #377f6d;
-  --c-2: #4da798;
-  --c-3: #a4ece1;
-}
-
-.light {
-  --color-page0: #ffffff;
-  --color-page1: #f1f1f1;
-  --color-page2: #e1e4e4;
-  --color-page3: #c8d3d3;
-  --color-page4: #98ada6;
-
-  --c-text: black;
-  --c-text-s: #3d4f4a;    
- 
-  --c-0: #255b4c;
-  --c-1: #377f6d;
-  --c-2: #4da798;
-  --c-3: #a4ece1;
-} */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */

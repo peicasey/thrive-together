@@ -13,7 +13,6 @@ import Create from "./components/create";
 // // CSS
 // import 'output.css';
 // import ThemeProvider from './components/ThemeProvider';
-import ToggleTheme from './components/ToggleTheme';
 
 import './index.css';
 
@@ -51,14 +50,7 @@ const App = ({ Component, pageProps }) => {
 
 
   return (
-    <div className="bg-white dark:bg-black">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <div className="bg-white dark:bg-black">
-        owo
-      </div>
-      <ToggleTheme />
+    <div className="bg-slate-50 dark:bg-slate-900">
       <Navbar />
       <Routes>
         <Route exact path="/" element={<RecordList server={s}/>} />
