@@ -6,6 +6,8 @@ import logo from '../assets/logo.svg';
 import world from '../assets/info/world.png';
 import steps from '../assets/info/steps.png';
 
+import Login from './login';
+
 
 export default function Onboarding() {
   
@@ -123,7 +125,7 @@ export default function Onboarding() {
         <div className="mt-12 pt-12 pb-12 bg-slate-200 border-2 border-slate-300 dark:bg-slate-800 dark:border-slate-600">
           <div className="flex justify-center flex-col">
               <h1 className="text-3xl text-center font-bold text-teal-600 dark:text-teal-400">✅ Sign Up Now!</h1>
-              <p className="text-center mt-4">ryan put the oath stuff here</p>
+              {/* <Login /> */}
           </div>
         </div>
         
