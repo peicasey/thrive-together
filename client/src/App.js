@@ -10,6 +10,9 @@ import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
 
+// pages
+import Onboarding from "./components/Onboarding";
+
 import './index.css';
 
 const App = ({ Component, pageProps }) => {
@@ -21,6 +24,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <div className="bg-slate-50 text-black dark:bg-slate-900 dark:text-white">
       <Navbar />
+      <Onboarding />
       <Routes>
         <Route exact path="/" element={<RecordList server={s}/>} />
         <Route path="/edit/:id" element={<Edit server={s}/>} />

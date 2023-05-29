@@ -20,7 +20,7 @@ const config = genConfig("hi@dapi.to")
 
 export default function NavBar() {
   return (
-    <Disclosure as="nav" className="bg-slate-800">
+    <Disclosure as="nav" className="fixed top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50 bg-teal-400/90 supports-backdrop-blur:bg-teal-100/60 dark:bg-transparent">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -56,7 +56,7 @@ export default function NavBar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-slate-900 text-white' : 'text-teal-500 hover:text-emerald-100',
+                          item.current ? 'bg-slate-900 text-white' : 'text-teal-950 dark:text-teal-500 hover:text-emerald-100 dark:hover:text-emerald-100',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -74,7 +74,7 @@ export default function NavBar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 focus:ring-offset-slate-800">
+                    <Menu.Button className="flex rounded-full bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 focus:ring-offset-emerald-200 dark:focus:ring-offset-slate-800">
                       <span className="sr-only">Open user menu</span>
                       <Avatar className="w-10 h-10" {...config} />
                     </Menu.Button>

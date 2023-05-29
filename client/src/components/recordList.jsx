@@ -23,7 +23,7 @@ export default function RecordList({ server }) {
  const [records, setRecords] = useState([]);
  
  // This method fetches the records from the database.
- useEffect((server) => {
+ useEffect(() => {
    async function getRecords() {
      const response = await fetch(server + `/record/`);
  
