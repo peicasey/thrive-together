@@ -12,7 +12,7 @@ function Login() {
         console.log(userObject);
         setUser(userObject);
         document.getElementById("signInDiv").hidden = true;
-    }
+    } // authorized test sign-in users: casey (gmail, tamu email), ryan (gmail, tamu email)
 
     function handleSignOut(event) { // we don't really need event, this is here incase of additional functionality
         setUser({});
