@@ -20,7 +20,7 @@ const config = genConfig("hi@dapi.to")
 
 export default function NavBar() {
   return (
-    <Disclosure as="nav" className="fixed top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50 bg-teal-400/90 supports-backdrop-blur:bg-teal-100/60 dark:bg-transparent">
+    <Disclosure as="nav" className="fixed top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-teal-500/60 lg:dark:border-teal-500/60 bg-teal-400/90 supports-backdrop-blur:bg-teal-100/60 dark:bg-transparent">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
