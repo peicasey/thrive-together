@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 // global google script added to index.html under ../public
 
-function Login() {
+function Login() { // this will essentially create a sign-in button with a sign-out button fully implemented
     const [ user, setUser ] = useState({});
 
     function handleCallbackResponse(response) {
@@ -31,7 +31,7 @@ function Login() {
             { theme: "outline", size: "large"}
         );
 
-        google.accounts.id.prompt();
+        google.accounts.id.prompt(); // automatically will prompt returning users to login with chrome
     }, []);
 
     return (
@@ -41,7 +41,7 @@ function Login() {
                 <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
             }
 
-            { user &&
+            { user && // this is a display of the user's pfp and username to show that they have been successfully logged in for testing
                 <div>
                     <img src={user.picture}></img>
                     <h3>{user.name}</h3>
