@@ -1,7 +1,7 @@
 // login template code (client id is accurate, copy+paste the same one each time)
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
-import './Login.css' // hypothetical css import for login styling
+// global google script added to index.html under ../public
 
 function Login() {
     const [ user, setUser ] = useState({});
@@ -14,9 +14,9 @@ function Login() {
         document.getElementById("signInDiv").hidden = true;
     }
 
-    function handleSignOut(event) {
+    function handleSignOut(event) { // we don't really need event, this is here incase of additional functionality
         setUser({});
-        document.getElementById("signInDiv").hidden = false;
+        document.getElementById("signInDiv").hidden = false; // show the sign-in div so users have the option to sign in again after logging out
     }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ function Login() {
     return (
         <div className="Login">
             <div id="signInDiv"></div>
-            { Object.keys(user).length != 0 &&
+            { Object.keys(user).length != 0 && // only shows sign out button if a user is signed in
                 <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
             }
 
