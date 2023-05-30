@@ -10,7 +10,6 @@ function Login() { // this will essentially create a sign-in button with a sign-
     const [ user, setUser ] = useState({});
     // useScript('https://accounts.google.com/gsi/client');
 
-
     function handleCallbackResponse(response) {
         console.log("Encoded JWT ID token: " + response.credential); // logs the user's json webtoken for decoding (this is how we get the info on who's who from google)
         var userObject = jwt_decode(response.credential); // this is from jwt-decode to decode the user data from a json webtoken
