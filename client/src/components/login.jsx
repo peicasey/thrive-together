@@ -3,8 +3,13 @@ import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode"; // to decode json webtokens that we get from a user login via google sign-in
 // global google script added to index.html under ../public
 
+import useScript from '../hooks/useScript';
+
 function Login() { // this will essentially create a sign-in button with a sign-out button fully implemented
+    // const [gsiScriptLoaded, setGsiScriptLoaded] = useState(false);
     const [ user, setUser ] = useState({});
+    // useScript('https://accounts.google.com/gsi/client');
+
 
     function handleCallbackResponse(response) {
         console.log("Encoded JWT ID token: " + response.credential); // logs the user's json webtoken for decoding (this is how we get the info on who's who from google)
@@ -20,8 +25,9 @@ function Login() { // this will essentially create a sign-in button with a sign-
     }
 
     useEffect(() => {
+    
         /* global google */
-        google.accounts.id.initalize({
+        google.accounts.id.initialize({
             client_id: "892235413140-53t2tbh7i0dbau2vvntgfcam0mg1ordl.apps.googleusercontent.com", // our app's unique sign in id authorized for localhost, localhost:3000, and the thrive-together vercel app link 
             callback: handleCallbackResponse
         });
@@ -30,12 +36,14 @@ function Login() { // this will essentially create a sign-in button with a sign-
             document.getElementById("signInDiv"),
             { theme: "outline", size: "large"}
         );
+        
 
         google.accounts.id.prompt(); // automatically will prompt returning users to login with chrome
     }, []);
 
     return (
         <div className="Login">
+             <script src="https://accounts.google.com/gsi/client" async defer></script>
             <div id="signInDiv"></div>
             { Object.keys(user).length != 0 && // only shows sign out button if a user is signed in
                 <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
@@ -43,7 +51,7 @@ function Login() { // this will essentially create a sign-in button with a sign-
 
             { user && // this is a display of the user's pfp and username to show that they have been successfully logged in for testing
                 <div>
-                    <img src={user.picture}></img>
+                    <img src={user.picture} alt=""/>
                     <h3>{user.name}</h3>
                 </div>
             }

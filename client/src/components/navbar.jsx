@@ -6,10 +6,9 @@ import ToggleTheme from './ToggleTheme';
 import logo from '../assets/logo.svg';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Dashboard', href: 'dashboard', current: true },
+  { name: 'Groups', href: 'groups', current: false },
+  { name: 'Explore', href: 'explore', current: false },
 ]
 
 function classNames(...classes) {

@@ -12,6 +12,10 @@ import Create from "./components/create";
 
 // pages
 import Onboarding from "./components/Onboarding";
+import Dashboard from "./components/Dashboard";
+import Groups from "./components/Groups";
+import Explore from "./components/Explore";
+
 
 import './index.css';
 
@@ -24,11 +28,14 @@ const App = ({ Component, pageProps }) => {
   return (
     <div className="bg-slate-50 text-black dark:bg-slate-900 dark:text-white">
       <Navbar />
-      <Onboarding />
       <Routes>
-        <Route exact path="/" element={<RecordList server={s}/>} />
+      <Route exact path="/" element={<Onboarding />} />
+        <Route exact path="/recordlist" element={<RecordList server={s}/>} />
         <Route path="/edit/:id" element={<Edit server={s}/>} />
         <Route path="/create" element={<Create server={s}/>} />
+        <Route exact path="/dashboard" element={<Dashboard server={s}/>} />
+        <Route exact path="/groups" element={<Groups server={s}/>} />
+        <Route exact path="/explore" element={<Explore server={s}/>} />
       </Routes>
     </div>
   );
