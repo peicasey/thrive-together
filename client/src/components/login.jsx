@@ -3,12 +3,8 @@ import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode"; // to decode json webtokens that we get from a user login via google sign-in
 // global google script added to index.html under ../public
 
-import useScript from '../hooks/useScript';
-
 function Login() { // this will essentially create a sign-in button with a sign-out button fully implemented
-    // const [gsiScriptLoaded, setGsiScriptLoaded] = useState(false);
     const [ user, setUser ] = useState({});
-    // useScript('https://accounts.google.com/gsi/client');
 
     function handleCallbackResponse(response) {
         console.log("Encoded JWT ID token: " + response.credential); // logs the user's json webtoken for decoding (this is how we get the info on who's who from google)
@@ -42,18 +38,35 @@ function Login() { // this will essentially create a sign-in button with a sign-
 
     return (
         <div className="Login">
-             <script src="https://accounts.google.com/gsi/client" async defer></script>
-            <div id="signInDiv"></div>
-            { Object.keys(user).length != 0 && // only shows sign out button if a user is signed in
-                <button onClick={ (e) => handleSignOut(e)}>Sign Out</button>
-            }
+            <script src="https://accounts.google.com/gsi/client" async defer></script>
+            <div className="p-4 flex items-center justify-center">
+                <div id="signInDiv"></div>
+                <div className="flex flex-col justify-center">
+                    
 
-            { user && // this is a display of the user's pfp and username to show that they have been successfully logged in for testing
-                <div>
-                    <img src={user.picture} alt=""/>
-                    <h3>{user.name}</h3>
+                    { user && // this is a display of the user's pfp and username to show that they have been successfully logged in for testing
+                        <div className="flex flex-col justify-center">
+                            <h2 className="text-xl m-4 font-bold text-emerald-700 dark:text-teal-400">{user ? "" : "Success! Signed in as:"}</h2>
+                            <img className="rounded-full" src={user.picture} alt={user ? "" : "user image"}/>
+                            
+                            {/* <img className="fixed top-0 right-0 z-[100] rounded-full w-10 mt-3 mr-8" src={user.picture} alt=""/> */}
+
+                            <h3 className="text-center text-slate-600 dark:text-slate-400">{user.name}</h3>
+                        </div>
+                        
+                    }
+
+                    { Object.keys(user).length != 0 && // only shows sign out button if a user is signed in
+                        <button 
+                            className="m-4 p-4 font-bold bg-emerald-500 rounded-md hover:bg-emerald-400 hover:rounded-xl duration-500" 
+                            onClick={ (e) => handleSignOut(e)}
+                        >
+                            Sign Out?
+                        </button>
+                    }
                 </div>
-            }
+                
+            </div>
         </div>
     );
 }

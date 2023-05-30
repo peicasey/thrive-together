@@ -17,7 +17,7 @@ function classNames(...classes) {
 
 const config = genConfig("hi@dapi.to") 
 
-export default function NavBar() {
+export default function NavBar({ handleSignOut }) {
   return (
     <Disclosure as="nav" className="fixed top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-teal-500/60 lg:dark:border-teal-500/60 bg-teal-400/90 supports-backdrop-blur:bg-teal-100/60 dark:bg-transparent">
       {({ open }) => (
@@ -55,7 +55,7 @@ export default function NavBar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-slate-900 text-white' : 'text-teal-950 dark:text-teal-500 hover:text-emerald-100 dark:hover:text-emerald-100',
+                          item.current ? 'bg-slate-900 text-white' : 'text-teal-950 dark:text-teal-500 hover:text-emerald-100 dark:hover:text-emerald-100 hover:-translate-y-0.5 duration-500',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -112,6 +112,7 @@ export default function NavBar() {
                         {({ active }) => (
                           <a
                             href="#"
+                            onClick={ (e) => handleSignOut(e) }
                             className={classNames(active ? 'bg-emerald-200' : '', 'block px-4 py-2 text-sm text-slate-700')}
                           >
                             Sign out

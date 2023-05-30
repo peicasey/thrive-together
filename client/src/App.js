@@ -25,11 +25,13 @@ const App = ({ Component, pageProps }) => {
   // DEBUG SERVER:      http://localhost:5050
   const [s, setS] = useState('https://thrive-together.onrender.com');
 
+  const [ user, setUser ] = useState({});
+
   return (
     <div className="bg-slate-50 text-black dark:bg-slate-900 dark:text-white">
       <Navbar />
       <Routes>
-      <Route exact path="/" element={<Onboarding />} />
+        <Route exact path="/" element={<Onboarding />} />
         <Route exact path="/recordlist" element={<RecordList server={s}/>} />
         <Route path="/edit/:id" element={<Edit server={s}/>} />
         <Route path="/create" element={<Create server={s}/>} />
